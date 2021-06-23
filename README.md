@@ -20,7 +20,7 @@ the Dockerfile
 
 1. build image `docker build -t helloworld .`
 1. run image `docker run -p 8080:8080 helloworld`
-1. access at: http://localhost:8080/HelloWorldRestService/hello*
+1. access at: http://localhost:8080/HelloWorldRestService/hello
 
 * make sure you don't have another running application server at this port
 

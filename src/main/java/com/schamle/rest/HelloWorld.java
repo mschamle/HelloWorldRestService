@@ -3,18 +3,23 @@ package com.schamle.rest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 @Path("hello")
 public class HelloWorld {
     @GET
-    public Response get() {
-        return Response.status(200).entity("Hello World").build();
+    @Produces(MediaType.APPLICATION_JSON)
+    public HelloMessage get() {
+        return new HelloMessage();
     }
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("{name}")
-    public Response getName(@PathParam("name") String name) {
-        return Response.status(200).entity("Hello " + name).build();
+    public HelloMessage getName(@PathParam("name") String name) {
+        HelloMessage message = new HelloMessage();
+        message.setName(name);
+        return message;
     }
 }
